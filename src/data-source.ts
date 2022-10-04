@@ -1,4 +1,5 @@
 import { DataSource } from "typeorm";
+import "reflect-metadata";
 import "dotenv/config";
 
 const AppDataSource =
@@ -11,7 +12,7 @@ const AppDataSource =
       })
     : new DataSource({
         type: "postgres",
-        host: "localhost",
+        host: process.env.POSTGRES_HOST,
         port: 5432,
         username: process.env.POSTGRES_USER,
         password: process.env.POSTGRES_PASSWORD,

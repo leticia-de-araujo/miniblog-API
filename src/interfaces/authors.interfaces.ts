@@ -6,7 +6,7 @@ export interface IAuthorRequest {
   password: string;
 }
 
-export interface IAuthorRequestValidate {
+export interface IAuthorRequestPatch {
   firstName?: string;
   lastName?: string;
   age?: number;

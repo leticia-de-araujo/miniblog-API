@@ -1,20 +1,15 @@
 import { Request, Response } from "express";
 import AppError from "../../errors/AppError";
 import { instanceToPlain } from "class-transformer";
-import { IAuthorRequestValidate } from "../../interfaces/authors.interfaces";
+import { IAuthorRequestPatch } from "../../interfaces/authors.interfaces";
 import authorUpdateService from "../../services/authors/authorUpdate.service";
 
 const authorUpdateController = async (req: Request, res: Response) => {
   try {
     const authorId = req.authorId!;
 
-    const {
-      firstName,
-      lastName,
-      age,
-      email,
-      password,
-    }: IAuthorRequestValidate = req.body;
+    const { firstName, lastName, age, email, password }: IAuthorRequestPatch =
+      req.body;
 
     const author = await authorUpdateService(authorId, {
       firstName,

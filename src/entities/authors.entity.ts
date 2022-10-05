@@ -1,6 +1,8 @@
-import { Entity, Column, PrimaryColumn } from "typeorm";
+import { Entity, Column, PrimaryColumn, OneToMany } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { Exclude } from "class-transformer";
+import { Article } from "./articles.entity";
+import { Category } from "./categories.entity";
 
 @Entity("authors")
 export class Author {
@@ -22,6 +24,12 @@ export class Author {
   @Column()
   @Exclude()
   password: string;
+
+  @OneToMany(() => Article, (article) => article.author)
+  articles: Article[];
+
+  @OneToMany(() => Category, (category) => category.author)
+  categories: Category[];
 
   constructor() {
     if (!this.id) {

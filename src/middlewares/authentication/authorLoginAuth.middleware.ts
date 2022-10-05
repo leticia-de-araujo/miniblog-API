@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 import AppError from "../../errors/AppError";
 
-const authorAuthenticationMiddleware = async (
+const authorLoginAuthMiddleware = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -52,4 +52,4 @@ const authorAuthenticationMiddleware = async (
   }
 };
 
-export default authorAuthenticationMiddleware;
+export default authorLoginAuthMiddleware;

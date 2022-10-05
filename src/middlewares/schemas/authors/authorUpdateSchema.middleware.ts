@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response } from "express";
 import * as yup from "yup";
 import { SchemaOf } from "yup";
-import { IAuthorRequestValidate } from "../../../interfaces/authors.interfaces";
+import { IAuthorRequestPatch } from "../../../interfaces/authors.interfaces";
 
-export const authorUpdateSchema: SchemaOf<IAuthorRequestValidate> = yup
+export const authorUpdateSchema: SchemaOf<IAuthorRequestPatch> = yup
   .object()
   .shape({
     firstName: yup
@@ -41,7 +41,7 @@ export const authorUpdateSchema: SchemaOf<IAuthorRequestValidate> = yup
   });
 
 export const authorUpdateMiddleware =
-  (schema: SchemaOf<IAuthorRequestValidate>) =>
+  (schema: SchemaOf<IAuthorRequestPatch>) =>
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const data = req.body;

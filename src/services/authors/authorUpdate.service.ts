@@ -2,11 +2,11 @@ import { hash } from "bcryptjs";
 import AppDataSource from "../../data-source";
 import { Author } from "../../entities/authors.entity";
 import AppError from "../../errors/AppError";
-import { IAuthorRequestValidate } from "../../interfaces/authors.interfaces";
+import { IAuthorRequestPatch } from "../../interfaces/authors.interfaces";
 
 const authorUpdateService = async (
   authorId: string,
-  { firstName, lastName, age, email, password }: IAuthorRequestValidate
+  { firstName, lastName, age, email, password }: IAuthorRequestPatch
 ): Promise<Author> => {
   const authorsRepository = AppDataSource.getRepository(Author);
 

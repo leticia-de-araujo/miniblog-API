@@ -1,5 +1,8 @@
 import express, { Request, Response } from "express";
 import "reflect-metadata";
+import handleErrorMiddleware from "./middlewares/errors/handleError.middleware";
+import "express-async-errors";
+import appRoutes from "./routes";
 
 const app = express();
 
@@ -11,5 +14,9 @@ app.get("/", (req: Request, res: Response) => {
       "Welcome! This API was developed for the Back-End test for LeadSoft.",
   });
 });
+
+appRoutes(app);
+
+app.use(handleErrorMiddleware);
 
 export default app;

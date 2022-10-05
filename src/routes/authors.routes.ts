@@ -1,9 +1,11 @@
 import { Router } from "express";
 import authorCreateController from "../controllers/authors/authorCreate.controller";
+import authorDeleteController from "../controllers/authors/authorDelete.controller";
 import authorListAllController from "../controllers/authors/authorListAll.controller";
 import authorListOneController from "../controllers/authors/authorListOne.controller";
 import authorUpdateController from "../controllers/authors/authorUpdate.controller";
-import authorAuthenticationMiddleware from "../middlewares/authentication/authorAuthentication.middleware";
+import accountOwnerAuthMiddleware from "../middlewares/authentication/accountOwnerAuth.middleware";
+import authorAuthenticationMiddleware from "../middlewares/authentication/authorLoginAuth.middleware";
 import {
   authorCreateMiddleware,
   authorCreateSchema,
@@ -26,8 +28,15 @@ const authorsRoutes = () => {
   routes.patch(
     "/:id",
     authorAuthenticationMiddleware,
+    accountOwnerAuthMiddleware,
     authorUpdateMiddleware(authorUpdateSchema),
     authorUpdateController
+  );
+  routes.delete(
+    "/:id",
+    authorAuthenticationMiddleware,
+    accountOwnerAuthMiddleware,
+    authorDeleteController
   );
 
   return routes;

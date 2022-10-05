@@ -18,7 +18,7 @@ const authorCreateController = async (req: Request, res: Response) => {
     });
 
     return res.status(201).json({
-      message: "Author registered successfully",
+      message: "Author registered successfully.",
       author: instanceToPlain(author),
     });
   } catch (error) {

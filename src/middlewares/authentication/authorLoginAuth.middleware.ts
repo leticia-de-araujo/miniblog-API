@@ -11,7 +11,7 @@ const authorAuthenticationMiddleware = async (
     const { authorization } = req.headers;
 
     if (!authorization) {
-      throw new AppError(401, "Missing authorization token,");
+      throw new AppError(401, "Missing authorization token.");
     }
 
     const authArray = authorization.split(" ");

@@ -6,8 +6,6 @@ import authorUpdateService from "../../services/authors/authorUpdate.service";
 
 const authorUpdateController = async (req: Request, res: Response) => {
   try {
-    const paramsId = req.params.id;
-
     const authorId = req.authorId!;
 
     const {
@@ -18,7 +16,7 @@ const authorUpdateController = async (req: Request, res: Response) => {
       password,
     }: IAuthorRequestValidate = req.body;
 
-    const author = await authorUpdateService(paramsId, authorId, {
+    const author = await authorUpdateService(authorId, {
       firstName,
       lastName,
       age,

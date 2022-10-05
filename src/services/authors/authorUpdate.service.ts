@@ -5,17 +5,9 @@ import AppError from "../../errors/AppError";
 import { IAuthorRequestValidate } from "../../interfaces/authors.interfaces";
 
 const authorUpdateService = async (
-  paramsId: string,
   authorId: string,
   { firstName, lastName, age, email, password }: IAuthorRequestValidate
 ): Promise<Author> => {
-  if (paramsId !== authorId) {
-    throw new AppError(
-      401,
-      "You must be the account owner to be able to update it."
-    );
-  }
-
   const authorsRepository = AppDataSource.getRepository(Author);
 
   const authors = await authorsRepository.find();

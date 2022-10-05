@@ -4,7 +4,11 @@ import { Article } from "../../entities/articles.entity";
 const articleListAllService = async (): Promise<Article[]> => {
   const articlesRepository = AppDataSource.getRepository(Article);
 
-  const articles = await articlesRepository.find();
+  const articles = await articlesRepository.find({
+    relations: {
+      author: true,
+    },
+  });
 
   return articles;
 };

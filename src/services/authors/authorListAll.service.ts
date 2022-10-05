@@ -4,7 +4,11 @@ import { Author } from "../../entities/authors.entity";
 const authorListAllService = async (): Promise<Author[]> => {
   const authorRepository = AppDataSource.getRepository(Author);
 
-  const authors = await authorRepository.find();
+  const authors = await authorRepository.find({
+    relations: {
+      articles: true,
+    },
+  });
 
   return authors;
 };

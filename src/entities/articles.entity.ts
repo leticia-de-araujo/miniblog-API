@@ -17,7 +17,6 @@ export class Article {
   text: string;
 
   @ManyToOne(() => Author, (author) => author.articles, {
-    eager: true,
     nullable: false,
   })
   author: Author;

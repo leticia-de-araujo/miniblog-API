@@ -5,7 +5,11 @@ import AppError from "../../errors/AppError";
 const articleListOneService = async (id: string): Promise<Article> => {
   const articlesRepository = AppDataSource.getRepository(Article);
 
-  const articles = await articlesRepository.find();
+  const articles = await articlesRepository.find({
+    relations: {
+      author: true,
+    },
+  });
 
   const article = articles.find((article) => article.id === id);
 

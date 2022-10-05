@@ -1,5 +1,7 @@
 import { Router } from "express";
 import categoryCreateController from "../controllers/categories/categoryCreate.controller";
+import categoryListAllController from "../controllers/categories/categoryListAll.controller";
+import categoryListOneController from "../controllers/categories/categoryListOne.controller";
 import authorLoginAuthMiddleware from "../middlewares/authentication/authorLoginAuth.middleware";
 import {
   categoryCreateMiddleware,
@@ -15,6 +17,8 @@ const categoriesRoutes = () => {
     categoryCreateMiddleware(categoryCreateSchema),
     categoryCreateController
   );
+  routes.get("", categoryListAllController);
+  routes.get("/:id", categoryListOneController);
 
   return routes;
 };

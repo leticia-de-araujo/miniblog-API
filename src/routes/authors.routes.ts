@@ -4,7 +4,7 @@ import authorListAllController from "../controllers/authors/authorListAll.contro
 import {
   authorCreateMiddleware,
   authorCreateSchema,
-} from "../middlewares/schemas/authors/authorCreate.middleware";
+} from "../middlewares/schemas/authors/authorCreateSchema.middleware";
 
 const routes = Router();
 

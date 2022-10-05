@@ -1,6 +1,7 @@
 import { Entity, Column, PrimaryColumn, ManyToOne } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { Author } from "./authors.entity";
+import { Category } from "./categories.entity";
 
 @Entity("articles")
 export class Article {
@@ -20,6 +21,11 @@ export class Article {
     nullable: false,
   })
   author: Author;
+
+  @ManyToOne(() => Category, (category) => category.articles, {
+    nullable: true,
+  })
+  category: Category;
 
   constructor() {
     if (!this.id) {

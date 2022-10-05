@@ -29,10 +29,11 @@ export const authorCreateSchema: SchemaOf<IAuthorRequestValidate> = yup
     email: yup
       .string()
       .email("The email entered must be a valid email address.")
-      .required("Email is a required field.")
+      .required("email is a required field.")
       .max(40, "The email field must contain a maximum of 40 characters."),
     password: yup
       .string()
+      .required("password is a required field.")
       .matches(
         /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$+ %^&*-]).{8,}$/,
         "The password field must have at least 1 capital letter, 1 lower case letter, 1 number and 1 special character."

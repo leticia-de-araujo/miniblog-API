@@ -9,8 +9,6 @@ const authorCreateController = async (req: Request, res: Response) => {
     const { firstName, lastName, age, email, password }: IAuthorRequest =
       req.body;
 
-    console.log("controller 1");
-
     const author = await authorCreateService({
       firstName,
       lastName,
@@ -19,15 +17,12 @@ const authorCreateController = async (req: Request, res: Response) => {
       password,
     });
 
-    console.log("controller 2");
-
     return res.status(201).json({
-      message: "Author registered successfully",
+      message: "Author registered successfully.",
       author: instanceToPlain(author),
     });
   } catch (error) {
     if (error instanceof AppError) {
-      console.log("controller catch error");
       throw new AppError(error.statusCode, error.message);
     }
   }

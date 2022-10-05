@@ -10,7 +10,7 @@ const authorCreateService = async ({
   age,
   email,
   password,
-}: IAuthorRequest) => {
+}: IAuthorRequest): Promise<Author> => {
   const authorRepository = AppDataSource.getRepository(Author);
 
   const emailAlreadyRegistered = await authorRepository.findOneBy({

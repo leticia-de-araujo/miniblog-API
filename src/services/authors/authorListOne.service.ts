@@ -8,6 +8,7 @@ const authorListOneService = async (id: string): Promise<Author> => {
   const authors = await authorsRepository.find({
     relations: {
       articles: true,
+      categories: true,
     },
   });
 

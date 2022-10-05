@@ -29,7 +29,7 @@ const articleCreateService = async ({
   const author = authors.find((author) => author.id === authorId);
 
   if (!author) {
-    throw new AppError(404, "Author not found");
+    throw new AppError(404, "Author not found.");
   }
 
   const newArticle = articlesRepository.create({

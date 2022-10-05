@@ -1,5 +1,6 @@
 import { Router } from "express";
 import authorCreateController from "../controllers/authors/authorCreate.controller";
+import authorListAllController from "../controllers/authors/authorListAll.controller";
 import {
   authorCreateMiddleware,
   authorCreateSchema,
@@ -13,6 +14,7 @@ const authorsRoutes = () => {
     authorCreateMiddleware(authorCreateSchema),
     authorCreateController
   );
+  routes.get("", authorListAllController);
 
   return routes;
 };

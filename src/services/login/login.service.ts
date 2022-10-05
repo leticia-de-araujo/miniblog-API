@@ -33,7 +33,7 @@ const loginService = async ({ email, password }: IAuthorLogin) => {
       id: author.id,
       email: author.email,
     },
-    String(process.env.SECRET_KEY),
+    process.env.SECRET_KEY as string,
     { expiresIn: "4h" }
   );
 

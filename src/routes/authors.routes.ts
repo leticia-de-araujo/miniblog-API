@@ -5,7 +5,7 @@ import authorListAllController from "../controllers/authors/authorListAll.contro
 import authorListOneController from "../controllers/authors/authorListOne.controller";
 import authorUpdateController from "../controllers/authors/authorUpdate.controller";
 import accountOwnerAuthMiddleware from "../middlewares/authentication/accountOwnerAuth.middleware";
-import authorAuthenticationMiddleware from "../middlewares/authentication/authorLoginAuth.middleware";
+import authorLoginAuthMiddleware from "../middlewares/authentication/authorLoginAuth.middleware";
 import {
   authorCreateMiddleware,
   authorCreateSchema,
@@ -27,14 +27,14 @@ const authorsRoutes = () => {
   routes.get("/:id", authorListOneController);
   routes.patch(
     "/:id",
-    authorAuthenticationMiddleware,
+    authorLoginAuthMiddleware,
     accountOwnerAuthMiddleware,
     authorUpdateMiddleware(authorUpdateSchema),
     authorUpdateController
   );
   routes.delete(
     "/:id",
-    authorAuthenticationMiddleware,
+    authorLoginAuthMiddleware,
     accountOwnerAuthMiddleware,
     authorDeleteController
   );

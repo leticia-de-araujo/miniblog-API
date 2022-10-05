@@ -10,7 +10,7 @@ export class Article {
   @Column({ length: 110, unique: true })
   title: string;
 
-  @Column({ length: 200, unique: true })
+  @Column({ length: 200 })
   description: string;
 
   @Column({ length: 100000 })

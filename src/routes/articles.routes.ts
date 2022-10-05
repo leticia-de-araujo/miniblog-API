@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { runInContext } from "vm";
 import articleCreateController from "../controllers/articles/articleCreate.controller";
+import articleDeleteController from "../controllers/articles/articleDelete.controller";
 import articleListAllController from "../controllers/articles/articleListAll.controller";
 import articleListOneController from "../controllers/articles/articleListOne.controller";
 import articleUpdateController from "../controllers/articles/articleUpdate.controller";
@@ -32,6 +32,13 @@ const articlesRoutes = () => {
     articleOwnerAuthMiddleware,
     articleUpdateMiddleware(articleUpdateSchema),
     articleUpdateController
+  );
+
+  routes.delete(
+    "/:id",
+    authorLoginAuthMiddleware,
+    articleOwnerAuthMiddleware,
+    articleDeleteController
   );
 
   return routes;

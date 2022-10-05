@@ -3,7 +3,7 @@ import "dotenv/config";
 import AppDataSource from "./data-source";
 
 const init = async () => {
-  const PORT = process.env.PORT || 3003;
+  const PORT = process.env.PORT || 4000;
 
   await AppDataSource.initialize()
     .then(() => {

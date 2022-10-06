@@ -31,7 +31,7 @@ const authorCreateService = async ({
     password: hashedPassword,
   });
 
-  authorRepository.save(author);
+  await authorRepository.save(author);
 
   return author;
 };

@@ -21,16 +21,9 @@ const categoryOwnerAuthMiddleware = async (
 
     const category = categories.find((category) => category.id === categoryId);
 
-    console.log(category);
-
     if (!category) {
       throw new AppError(404, "Category not found.");
     }
-
-    console.log(category.author);
-    console.log(category.author.id);
-    console.log("/////////////////");
-    console.log(authorId);
 
     if (category.author.id !== authorId) {
       throw new AppError(

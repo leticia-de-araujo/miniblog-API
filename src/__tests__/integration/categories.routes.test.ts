@@ -98,6 +98,28 @@ describe("/categories", () => {
     expect(response.body).toHaveProperty("message", "Author not found.");
   });
 
+  test("POST /categories - Should not be able to create a category without authentication token", async () => {
+    const response = await request(app)
+      .post("/categories")
+      .send(mockedCategory);
+
+    expect(response.status).toBe(401);
+    expect(response.body).toHaveProperty(
+      "message",
+      "Missing authorization token."
+    );
+  });
+
+  test("POST /categories - Should not be able to create a category with invalid token", async () => {
+    const response = await request(app)
+      .post("/categories")
+      .send(mockedCategory)
+      .set("Authorization", `Bearer 7ysa7gbe6qwgr0e2`);
+
+    expect(response.status).toBe(401);
+    expect(response.body).toHaveProperty("message", "Invalid token.");
+  });
+
   test("GET /categories - Should be able to list all categories", async () => {
     const response = await request(app).get("/categories");
 

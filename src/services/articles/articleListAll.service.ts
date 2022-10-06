@@ -8,6 +8,7 @@ const articleListAllService = async (): Promise<Article[]> => {
     relations: {
       author: true,
       category: true,
+      comments: true,
     },
   });
 

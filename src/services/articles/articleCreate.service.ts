@@ -13,8 +13,16 @@ const articleCreateService = async ({
   categoryId,
 }: IArticleRequest): Promise<Article> => {
   const articlesRepository = AppDataSource.getRepository(Article);
-
   const articles = await articlesRepository.find();
+
+  const authorsRepository = AppDataSource.getRepository(Author);
+  const authors = await authorsRepository.find();
+
+  const author = authors.find((author) => author.id === authorId);
+
+  if (!author) {
+    throw new AppError(404, "Author not found.");
+  }
 
   const titleAlreadyRegistered = articles.find(
     (article) => article.title === title
@@ -22,16 +30,6 @@ const articleCreateService = async ({
 
   if (titleAlreadyRegistered) {
     throw new AppError(409, "There is already an article with this title.");
-  }
-
-  const authorsRepository = AppDataSource.getRepository(Author);
-
-  const authors = await authorsRepository.find();
-
-  const author = authors.find((author) => author.id === authorId);
-
-  if (!author) {
-    throw new AppError(404, "Author not found.");
   }
 
   let category;
@@ -59,7 +57,7 @@ const articleCreateService = async ({
     category,
   });
 
-  articlesRepository.save(newArticle);
+  await articlesRepository.save(newArticle);
 
   return newArticle;
 };

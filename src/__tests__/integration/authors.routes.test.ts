@@ -252,8 +252,6 @@ describe("/authors", () => {
     );
   });
 
-  ///////
-
   test("DELETE /authors/:id - Should not be able to delete an author without authentication token", async () => {
     const authors = await request(app).get("/authors");
     const authorId = authors.body.authors[1].id;

@@ -109,6 +109,26 @@ describe("/articles", () => {
     expect(response.body).toHaveProperty("message", "Author not found.");
   });
 
+  test("POST /articles - Should not be able to create an article without authentication token", async () => {
+    const response = await request(app).post("/articles").send(mockedArticle);
+
+    expect(response.status).toBe(401);
+    expect(response.body).toHaveProperty(
+      "message",
+      "Missing authorization token."
+    );
+  });
+
+  test("POST /articles - Should not be able to create an article with invalid token", async () => {
+    const response = await request(app)
+      .post("/articles")
+      .send(mockedArticle)
+      .set("Authorization", `Bearer 7ysa7gbe6qwgr0e2`);
+
+    expect(response.status).toBe(401);
+    expect(response.body).toHaveProperty("message", "Invalid token.");
+  });
+
   test("GET /articles - Should be able to list all articles", async () => {
     const response = await request(app).get("/articles");
 

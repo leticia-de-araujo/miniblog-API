@@ -33,6 +33,21 @@ const articleUpdateService = async (
     text: text ? text : article.text,
   };
 
+  const articleSameData = await articlesRepository.findOne({
+    where: {
+      title: articleToUpdate.title,
+      description: articleToUpdate.description,
+      text: articleToUpdate.text,
+    },
+  });
+
+  if (articleSameData) {
+    throw new AppError(
+      400,
+      "Cannot update an article without changes to any fields."
+    );
+  }
+
   await articlesRepository.update(id, articleToUpdate);
 
   const articleUpdated = await articlesRepository.findOne({

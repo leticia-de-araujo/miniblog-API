@@ -6,13 +6,14 @@ import articleCreateService from "../../services/articles/articleCreate.service"
 
 const articleCreateController = async (req: Request, res: Response) => {
   try {
-    const { title, description, text, authorId }: IArticleRequest = req.body;
+    const { title, description, text, authorId, categoryId }: IArticleRequest = req.body;
 
     const article = await articleCreateService({
       title,
       description,
       text,
       authorId,
+      categoryId
     });
 
     return res.status(201).json({

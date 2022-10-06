@@ -8,12 +8,13 @@ const articleUpdateController = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
 
-    const { title, description, text }: IArticleRequestPatch = req.body;
+    const { title, description, text, categoryId }: IArticleRequestPatch = req.body;
 
     const article = await articleUpdateService(id, {
       title,
       description,
       text,
+      categoryId
     });
 
     return res.status(200).json({

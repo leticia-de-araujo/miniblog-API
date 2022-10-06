@@ -25,6 +25,7 @@ export const articleCreateSchema: SchemaOf<IArticleRequest> = yup
         "The text field must contain a maximum of 100000 characters."
       ),
     authorId: yup.string().required("authorId is a required field."),
+    categoryId: yup.string().notRequired().nullable(),
   });
 
 export const articleCreateMiddleware =

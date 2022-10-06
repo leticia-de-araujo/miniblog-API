@@ -1,11 +1,12 @@
 import AppDataSource from "../../data-source";
 import { Article } from "../../entities/articles.entity";
+import { Category } from "../../entities/categories.entity";
 import AppError from "../../errors/AppError";
 import { IArticleRequestPatch } from "../../interfaces/articles.interface";
 
 const articleUpdateService = async (
   id: string,
-  { title, description, text }: IArticleRequestPatch
+  { title, description, text, categoryId }: IArticleRequestPatch
 ): Promise<Article> => {
   const articlesRepository = AppDataSource.getRepository(Article);
 
@@ -27,10 +28,29 @@ const articleUpdateService = async (
     }
   }
 
+  let category;
+
+  if (categoryId) {
+    
+    const categoriesRepository = AppDataSource.getRepository(Category);
+    const categories = await categoriesRepository.find();
+
+    const categoryFind = categories.find(
+      (category) => category.id === categoryId
+    );
+
+    if (!categoryFind) {
+      throw new AppError(404, "Category not found.");
+    }
+
+    category = categoryFind;
+  }
+
   const articleToUpdate = {
     title: title ? title : article.title,
     description: description ? description : article.description,
     text: text ? text : article.text,
+    category: categoryId ? category : article.category,
   };
 
   const articleSameData = await articlesRepository.findOne({
@@ -38,6 +58,7 @@ const articleUpdateService = async (
       title: articleToUpdate.title,
       description: articleToUpdate.description,
       text: articleToUpdate.text,
+      category: articleToUpdate.category,
     },
   });
 
@@ -53,6 +74,10 @@ const articleUpdateService = async (
   const articleUpdated = await articlesRepository.findOne({
     where: {
       id: id,
+    },
+    relations: {
+      author: true,
+      category: true,
     },
   });
 

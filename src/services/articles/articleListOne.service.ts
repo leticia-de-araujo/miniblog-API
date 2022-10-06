@@ -8,6 +8,7 @@ const articleListOneService = async (id: string): Promise<Article> => {
   const articles = await articlesRepository.find({
     relations: {
       author: true,
+      category: true,
     },
   });
 

@@ -3,12 +3,14 @@ export interface IArticleRequest {
   description: string;
   text: string;
   authorId: string;
+  categoryId?: string | null;
 }
 
 export interface IArticleRequestPatch {
   title?: string;
   description?: string;
   text?: string;
+  categoryId?: string | null;
 }
 
 export interface IArticle {
@@ -17,4 +19,5 @@ export interface IArticle {
   description: string;
   text: string;
   authorId: string;
+  categoryId: string | null;
 }

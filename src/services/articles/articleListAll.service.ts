@@ -7,6 +7,7 @@ const articleListAllService = async (): Promise<Article[]> => {
   const articles = await articlesRepository.find({
     relations: {
       author: true,
+      category: true,
     },
   });
 

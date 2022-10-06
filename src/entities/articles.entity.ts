@@ -24,6 +24,8 @@ export class Article {
 
   @ManyToOne(() => Category, (category) => category.articles, {
     nullable: true,
+    onDelete: "SET NULL",
+    orphanedRowAction: "nullify",
   })
   category: Category;
 

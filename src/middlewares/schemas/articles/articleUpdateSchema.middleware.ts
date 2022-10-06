@@ -24,6 +24,7 @@ export const articleUpdateSchema: SchemaOf<IArticleRequestPatch> = yup
         100000,
         "The text field must contain a maximum of 100000 characters."
       ),
+    categoryId: yup.string().notRequired().nullable(),
   });
 
 export const articleUpdateMiddleware =

@@ -35,7 +35,7 @@ const commentCreateService = async ({
     article: article,
   });
 
-  commentsRepository.save(newComment);
+  await commentsRepository.save(newComment);
 
   return newComment;
 };

@@ -37,7 +37,7 @@ const categoryCreateService = async ({
     author: author,
   });
 
-  categoriesRepository.save(newCategory);
+  await categoriesRepository.save(newCategory);
 
   return newCategory;
 };

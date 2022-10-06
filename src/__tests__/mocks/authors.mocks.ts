@@ -53,7 +53,7 @@ export const mockedLogin2: IAuthorLogin = {
   password: "Senha1234+",
 };
 
-export const mockedLoginInvalid: IAuthorLogin = {
+export const mockedLoginInvalidData: IAuthorLogin = {
   email: "paulo@email.com",
   password: "Senha123",
 };

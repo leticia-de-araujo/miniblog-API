@@ -1,7 +1,8 @@
-import { Entity, Column, PrimaryColumn, ManyToOne } from "typeorm";
+import { Entity, Column, PrimaryColumn, ManyToOne, OneToMany } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { Author } from "./authors.entity";
 import { Category } from "./categories.entity";
+import { Comment } from "./comments.entity";
 
 @Entity("articles")
 export class Article {
@@ -28,6 +29,9 @@ export class Article {
     orphanedRowAction: "nullify",
   })
   category: Category;
+
+  @OneToMany(() => Comment, (comment) => comment.article)
+  comments: Comment[];
 
   constructor() {
     if (!this.id) {

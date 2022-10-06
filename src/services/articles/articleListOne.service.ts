@@ -9,6 +9,7 @@ const articleListOneService = async (id: string): Promise<Article> => {
     relations: {
       author: true,
       category: true,
+      comments: true,
     },
   });
 

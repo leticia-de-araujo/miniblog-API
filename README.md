@@ -37,6 +37,9 @@ These were the main technologies used in this project:
 - [Yup](https://www.npmjs.com/package/yup)
 - [Jest](https://jestjs.io/)
 - [Docker](https://www.docker.com/)
+- [Heroku](https://www.heroku.com/)
+
+<b>Base URL:</b> https://miniblog-leadsoft.herokuapp.com/
 
 ---
 
@@ -155,6 +158,7 @@ The Author object is defined as:
 
 #### Request:
 
+- URL: https://miniblog-leadsoft.herokuapp.com/authors
 - Authorization: None
 - Content-type: application/json
 
@@ -243,6 +247,7 @@ The Author object is defined as:
 
 #### Request:
 
+- URL: https://miniblog-leadsoft.herokuapp.com/authors
 - Authorization: None
 - Empty Body
 
@@ -292,6 +297,7 @@ The Author object is defined as:
 
 #### Request:
 
+- URL: https://miniblog-leadsoft.herokuapp.com/authors/:authorId
 - Authorization: None
 - Empty Body
 
@@ -346,6 +352,7 @@ The Author object is defined as:
 
 #### Request:
 
+- URL: https://miniblog-leadsoft.herokuapp.com/authors/:authorId
 - Authorization: Bearer Token
 - User must be the owner of the account
 - Content-type: application/json
@@ -484,6 +491,7 @@ The Author object is defined as:
 
 #### Request:
 
+- URL: https://miniblog-leadsoft.herokuapp.com/authors/:authorId
 - Authorization: Bearer Token
 - Author must be the owner of the account
 - Empty Body
@@ -599,6 +607,7 @@ The Login object is defined as:
 
 #### Request:
 
+- URL: https://miniblog-leadsoft.herokuapp.com/login
 - Authorization: None
 - Content-type: application/json
 
@@ -696,6 +705,7 @@ The Article object is defined as:
 
 #### Request:
 
+- URL: https://miniblog-leadsoft.herokuapp.com/articles
 - Authorization: Bearer Token
 - Content-type: application/json
 
@@ -835,6 +845,7 @@ The Article object is defined as:
 
 #### Request:
 
+- URL: https://miniblog-leadsoft.herokuapp.com/articles
 - Authorization: None
 - Empty Body
 
@@ -890,6 +901,7 @@ The Article object is defined as:
 
 #### Request:
 
+- URL: https://miniblog-leadsoft.herokuapp.com/articles/:articleId
 - Authorization: None
 - Empty Body
 
@@ -950,6 +962,7 @@ The Article object is defined as:
 
 #### Request:
 
+- URL: https://miniblog-leadsoft.herokuapp.com/articles/:articleId
 - Authorization: Bearer Token
 - User must be the article author
 - Content-type: application/json
@@ -1097,6 +1110,7 @@ The Article object is defined as:
 
 #### Request:
 
+- URL: https://miniblog-leadsoft.herokuapp.com/articles/:articleId
 - Authorization: Bearer Token
 - User must be the article author
 - Empty Body
@@ -1217,6 +1231,7 @@ The Category object is defined as:
 
 #### Request:
 
+- URL: https://miniblog-leadsoft.herokuapp.com/categories
 - Authorization: Bearer Token
 - Content-type: application/json
 
@@ -1354,6 +1369,7 @@ The Category object is defined as:
 
 #### Request:
 
+- URL: https://miniblog-leadsoft.herokuapp.com/categories
 - Authorization: None
 - Empty Body
 
@@ -1407,6 +1423,7 @@ The Category object is defined as:
 
 #### Request:
 
+- URL: https://miniblog-leadsoft.herokuapp.com/categories/:categoryId
 - Authorization: None
 - Empty Body
 
@@ -1465,6 +1482,7 @@ The Category object is defined as:
 
 #### Request:
 
+- URL: https://miniblog-leadsoft.herokuapp.com/categories/:categoryId
 - Authorization: Bearer Token
 - User must be the author that created the category
 - Content-type: application/json
@@ -1597,6 +1615,7 @@ The Category object is defined as:
 
 #### Request:
 
+- URL: https://miniblog-leadsoft.herokuapp.com/categories/:categoryId
 - Authorization: Bearer Token
 - User must be the author that created the category
 - Empty Body
@@ -1715,6 +1734,7 @@ The Comment object is defined as:
 
 #### Request:
 
+- URL: https://miniblog-leadsoft.herokuapp.com/comments
 - Authorization: None
 - Content-type: application/json
 
@@ -1815,6 +1835,7 @@ The Comment object is defined as:
 
 #### Request:
 
+- URL: https://miniblog-leadsoft.herokuapp.com/comments
 - Authorization: None
 - Empty Body
 
@@ -1865,6 +1886,7 @@ The Comment object is defined as:
 
 #### Request:
 
+- URL: https://miniblog-leadsoft.herokuapp.com/comments/:commentId
 - Authorization: None
 - Empty Body
 
@@ -1920,6 +1942,7 @@ The Comment object is defined as:
 
 #### Request:
 
+- URL: https://miniblog-leadsoft.herokuapp.com/comments/:commentId
 - Authorization: None
 - Content-type: application/json
 
@@ -2011,6 +2034,7 @@ The Comment object is defined as:
 
 #### Request:
 
+- URL: https://miniblog-leadsoft.herokuapp.com/comments/:commentId
 - Authorization: None
 - Empty Body
 

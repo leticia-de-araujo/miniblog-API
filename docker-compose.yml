@@ -22,7 +22,7 @@ services:
     env_file:
       - .env
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U leticia -d miniblog"]
+      test: ["CMD-SHELL", "pg_isready -U <postgresUsername> -d <postgresDatabase>"]
       interval: 10s
       timeout: 5s
       retries: 5

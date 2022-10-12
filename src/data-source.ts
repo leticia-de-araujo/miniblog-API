@@ -21,11 +21,11 @@ const AppDataSource =
         synchronize: false,
         entities:
           process.env.NODE_ENV === "production"
-            ? ["dist/src/entities/*.js"]
+            ? ["dist/entities/*.js"]
             : ["src/entities/*.ts"],
         migrations:
           process.env.NODE_ENV === "production"
-            ? ["dist/src/migrations/*.js"]
+            ? ["dist/migrations/*.js"]
             : ["src/migrations/*.ts"],
       });
 

@@ -87,6 +87,14 @@ Run migrations with the command:
 yarn typeorm migration:run -d src/data-source.ts
 ```
 
+### 3.4. Tests
+
+Run tests with the command:
+
+```shell
+yarn test
+```
+
 ---
 
 ## 4. Authentication

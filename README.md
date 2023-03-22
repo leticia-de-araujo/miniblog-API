@@ -1,8 +1,8 @@
-# LeadSoft MiniBlog API Documentation
+# MiniBlog API Documentation
 
 ## Content Table
 
-- [LeadSoft MiniBlog API Documentation](#leadsoft-miniblog-api-documentation)
+- [MiniBlog API Documentation](#leadsoft-miniblog-api-documentation)
   - [Content Table](#content-table)
   - [1. Overview](#1-overview)
     - [1.1. Author](#11-author)
@@ -18,7 +18,7 @@
 
 ## 1. Overview
 
-This API was developed for **LeadSoft Soluções Web's** Back-End technical test.
+This API was developed for a Back-End technical test.
 
 The API was structured around 4 Entities/Tables:
 

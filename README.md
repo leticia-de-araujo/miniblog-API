@@ -18,7 +18,7 @@
 
 ## 1. Overview
 
-This API was developed for a Back-End technical test.
+This project is an API designed for a MiniBlog platform.
 
 The API was structured around 4 Entities/Tables:
 

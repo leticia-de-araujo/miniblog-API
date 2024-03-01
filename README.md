@@ -39,8 +39,6 @@ These were the main technologies used in this project:
 - [Docker](https://www.docker.com/)
 - [Heroku](https://www.heroku.com/)
 
-<b>Base URL:</b> https://miniblog-leadsoft.herokuapp.com/
-
 ---
 
 ### 1.1. Author
